@@ -1,4 +1,4 @@
-// 1. CURSORE PC
+// 1. CURSORE E ANIMAZIONI REVEAL
 const dot = document.querySelector('.cursor-dot');
 if (window.matchMedia("(pointer: fine)").matches) {
     document.addEventListener('mousemove', (e) => {
@@ -6,14 +6,12 @@ if (window.matchMedia("(pointer: fine)").matches) {
         dot.style.left = e.clientX + 'px'; dot.style.top = e.clientY + 'px';
     });
 }
-
-// 2. REVEAL ANIMATION
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
 }, { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-// 3. LOGICA TIMELINE
+// 2. LOGICA TIMELINE
 const timelineData = {
     "1914": { title: "L'Eclissi d'Europa", text: "L'attentato di Sarajevo del 28 giugno fa crollare l'equilibrio delle potenze." },
     "1915": { title: "Il Grido del Fronte", text: "L'Italia rompe la neutralità ed entra nel conflitto il 24 Maggio." },
@@ -23,11 +21,9 @@ const timelineData = {
     "1919": { title: "Cenere e Trattati", text: "A Versailles si ridisegna il mondo, ma restano ferite aperte." }
 };
 
-function updateTimeline(year) {
-    document.querySelectorAll('.time-node').forEach(node => {
-        node.classList.remove('active');
-        if(node.innerText === year) node.classList.add('active');
-    });
+function updateTimeline(year, element) {
+    document.querySelectorAll('.node').forEach(n => n.classList.remove('active'));
+    element.classList.add('active');
     const content = document.getElementById('timeline-content');
     content.style.opacity = '0';
     setTimeout(() => {
@@ -37,14 +33,12 @@ function updateTimeline(year) {
     }, 300);
 }
 
-// 4. LOGICA QUIZ FUNZIONANTE
+// 3. LOGICA QUIZ (RIPRISTINATA)
 const questions = [
     { q: "In che anno l'Italia entra in guerra?", a: ["1914", "1915", "1917"], correct: 1 },
-    { q: "Chi fu assassinato a Sarajevo?", a: ["Francesco Ferdinando", "Vittorio Emanuele III", "Garibaldi"], correct: 0 },
-    { q: "Dove avvenne la disfatta italiana del 1917?", a: ["Caporetto", "Vittorio Veneto", "Piave"], correct: 0 },
-    { q: "Quale gas fu usato come arma chimica?", a: ["Iprite", "Ossigeno", "Elio"], correct: 0 }
+    { q: "Chi fu assassinato a Sarajevo?", a: ["Francesco Ferdinando", "Zar Nicola", "Garibaldi"], correct: 0 },
+    { q: "Quale gas fu usato per la prima volta?", a: ["Iprite", "Ossigeno", "Metano"], correct: 0 }
 ];
-
 let currentQ = 0;
 
 function startQuiz() {
@@ -61,6 +55,7 @@ function showQuestion() {
         const btn = document.createElement('button');
         btn.innerText = opt;
         btn.className = 'btn-main';
+        btn.style.margin = '10px';
         btn.onclick = () => checkAnswer(i);
         grid.appendChild(btn);
     });
@@ -70,12 +65,9 @@ function checkAnswer(i) {
     if(i === questions[currentQ].correct) {
         alert("Corretto!");
         currentQ++;
-        if(currentQ < questions.length) {
-            showQuestion();
-        } else {
-            document.getElementById('quiz-box').innerHTML = "<h3>Test Completato!</h3><p>Ottimo lavoro, Gabriele.</p>";
-        }
+        if(currentQ < questions.length) showQuestion();
+        else document.getElementById('quiz-box').innerHTML = "<h3 style='color:var(--accent)'>TEST COMPLETATO!</h3><p>Gabriele, hai dimostrato ottima conoscenza storica.</p>";
     } else {
-        alert("Sbagliato, riprova!");
+        alert("Risposta sbagliata, riprova!");
     }
 }
