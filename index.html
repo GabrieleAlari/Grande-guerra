@@ -22,19 +22,14 @@
     <nav class="main-nav">
         <div class="nav-brand">1914 — 1919</div>
         <div class="nav-links">
-            <div class="dropdown">
-                <button class="dropbtn">ESPLORA ▾</button>
-                <div class="dropdown-content">
-                    <a href="#timeline-section">CRONOLOGIA</a>
-                    <a href="#archivio">ARCHIVIO</a>
-                    <a href="#quiz-section">QUIZ</a>
-                </div>
-            </div>
+            <a href="#timeline-section">CRONOLOGIA</a>
+            <a href="#archivio">ARCHIVIO</a>
+            <a href="#quiz-section">QUIZ</a>
         </div>
     </nav>
 
     <main>
-        <h2 class="section-title reveal-title">LA LINEA DEL TEMPO</h2>
+        <h2 class="section-title reveal">LA LINEA DEL TEMPO</h2>
         <section id="timeline-section" class="reveal">
             <div class="timeline-line-container">
                 <div class="timeline-main-line"></div>
@@ -51,29 +46,31 @@
                 <div id="timeline-content">
                     <h3 id="dynamic-title">L'Eclissi d'Europa</h3>
                     <div class="divider"></div>
-                    <p id="dynamic-text">Il 28 giugno a Sarajevo, l'assassinio di Francesco Ferdinando scatena la Grande Guerra.</p>
+                    <p id="dynamic-text">L'attentato di Sarajevo del 28 giugno 1914 fa crollare l'equilibrio delle potenze europee.</p>
                 </div>
             </div>
         </section>
 
-        <h2 class="section-title reveal-title">ARCHIVIO STORICO</h2>
+        <h2 class="section-title reveal">ARCHIVIO STORICO</h2>
         <section id="archivio" class="reveal">
             <div class="archive-grid">
-                <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><h3>ELMETTO ADRIAN</h3></div><div class="flip-card-back"><p>Protezione standard per le schegge in trincea.</p></div></div></div>
-                <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><h3>MASCHERA ANTIGAS</h3></div><div class="flip-card-back"><p>Difesa contro la morte invisibile dei gas tossici.</p></div></div></div>
-                <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><h3>FILO SPINATO</h3></div><div class="flip-card-back"><p>L'ostacolo letale della terra di nessuno.</p></div></div></div>
-                <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><h3>PICCIONE VIAGGIATORE</h3></div><div class="flip-card-back"><p>Comunicazioni vitali sotto il fuoco nemico.</p></div></div></div>
-                <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><h3>FUCILE CARCANO</h3></div><div class="flip-card-back"><p>L'arma del fante italiano: Modello 91.</p></div></div></div>
-                <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><h3>TELEGRAMMA</h3></div><div class="flip-card-back"><p>Il messaggio che portò gli USA in guerra.</p></div></div></div>
+                <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><h3>ELMETTO ADRIAN</h3></div><div class="flip-card-back"><p>Simbolo della protezione nelle trincee italiane e francesi.</p></div></div></div>
+                <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><h3>MASCHERA ANTIGAS</h3></div><div class="flip-card-back"><p>Indispensabile dopo l'uso del gas iprite sul fronte.</p></div></div></div>
+                <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><h3>FILO SPINATO</h3></div><div class="flip-card-back"><p>L'ostacolo letale nella terra di nessuno.</p></div></div></div>
+                <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><h3>PICCIONE VIAGGIATORE</h3></div><div class="flip-card-back"><p>Usato per messaggi vitali quando i cavi erano recisi.</p></div></div></div>
+                <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><h3>FUCILE CARCANO</h3></div><div class="flip-card-back"><p>Il fucile d'ordinanza dei fanti italiani (Mod. 91).</p></div></div></div>
+                <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><h3>TELEGRAMMA</h3></div><div class="flip-card-back"><p>Il messaggio Zimmermann che accelerò l'intervento USA.</p></div></div></div>
             </div>
         </section>
 
+        <h2 class="section-title reveal">PROVA DI MEMORIA</h2>
         <section id="quiz-section" class="quiz-container reveal">
-            <h2 class="section-title">IL TEST DEL FRONTE</h2>
             <div id="quiz-box">
-                <p id="question-text">Metti alla prova la tua memoria storica.</p>
+                <p id="question-text">Sei pronto a testare la tua conoscenza storica?</p>
                 <div id="options-grid"></div>
-                <button id="start-quiz-btn" class="btn-main" onclick="startQuiz()">INIZIA IL TEST</button>
+                <div style="text-align: center; margin-top: 20px;">
+                    <button id="start-quiz-btn" class="btn-main" onclick="startQuiz()">INIZIA IL TEST</button>
+                </div>
             </div>
         </section>
     </main>
