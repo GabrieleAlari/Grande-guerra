@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ARCHIVIO GRANDE GUERRA | 1914-1919</title>
+    <title>THE BIG WAR | Gabriele Alari</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -13,36 +13,67 @@
     <div class="scroll-progress"></div>
     <div class="grain"></div>
 
+    <header class="hero">
+        <div class="hero-content">
+            <h1 class="glitch" data-text="THE BIG WAR">THE BIG WAR</h1>
+            <p class="author-name">Curato da <span>Gabriele Alari</span></p>
+        </div>
+        <div class="scroll-indicator">SCORRI PER ESPLORARE</div>
+    </header>
+
     <nav class="main-nav">
-        <div class="nav-brand">ARCHIVIO 14—19</div>
+        <div class="nav-brand">1914—1919</div>
         <div class="nav-links">
             <div class="dropdown">
-                <button class="dropbtn">CRONOLOGIA <span>▼</span></button>
+                <button class="dropbtn">CRONOLOGIA ▾</button>
                 <div class="dropdown-content">
-                    <a href="#1914">1914 — Lo Scintilla</a>
-                    <a href="#1915">1915 — L'Intervento</a>
-                    <a href="#1916">1916 — Il Fango</a>
-                    <a href="#1917">1917 — La Svolta</a>
-                    <a href="#1918">1918 — La Fine</a>
-                    <a href="#1919">1919 — Le Macerie</a>
+                    <a href="#1914">1914</a>
+                    <a href="#1915">1915</a>
+                    <a href="#1916">1916</a>
+                    <a href="#1917">1917</a>
+                    <a href="#1918">1918</a>
+                    <a href="#1919">1919</a>
                 </div>
             </div>
+            <a href="#archivio">ARCHIVIO</a>
             <a href="#quiz-section">QUIZ</a>
-            <a href="#prof-barbone">PROF BARBONE</a>
-            <button id="theme-switcher">TEMA</button>
+            <a href="#prof-barbone">BARBONE</a>
         </div>
     </nav>
 
-    <header class="hero">
-        <h1 class="glitch" data-text="GRANDE GUERRA">GRANDE GUERRA</h1>
-        <p>L'eclissi dell'Europa moderna attraverso i documenti d'archivio.</p>
-    </header>
-
-    <main id="content">
+    <main>
         <section id="1914" class="history-block reveal">
             <span class="year-label">1914</span>
             <h2>L'assassinio della Belle Époque</h2>
-            <p>Il 28 giugno a Sarajevo, l'assassinio di <span class="censored">Francesco Ferdinando</span> scatena una reazione a catena. Le nazioni europee passano dai caffè ai campi di battaglia in poche settimane.</p>
+            <p>Il 28 giugno a Sarajevo, l'assassinio di <span class="censored">Francesco Ferdinando</span> scatena una reazione a catena che porta alla mobilitazione generale.</p>
+        </section>
+
+        <section id="archivio" class="reveal">
+            <h2 class="section-title">ARCHIVIO REPERTI</h2>
+            <div class="archive-grid">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <h3>ELMETTO ADRIAN</h3>
+                            <p>(Passa il mouse)</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <p>Introdotto nel 1915 per proteggere i soldati dalle schegge nelle trincee.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <h3>MASCHERA ANTIGAS</h3>
+                            <p>(Passa il mouse)</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <p>Essenziale dopo l'uso del gas iprite a Ypres. Simbolo del terrore chimico.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <section id="quiz-section" class="quiz-container reveal">
@@ -51,7 +82,7 @@
                 <div id="progress-bar"><div id="progress-fill"></div></div>
             </div>
             <div id="quiz-box">
-                <p id="question-text">Sei pronto a testare la tua conoscenza?</p>
+                <p id="question-text">Sei pronto?</p>
                 <div id="options-grid"></div>
                 <button id="start-quiz-btn" class="btn-main" onclick="startQuiz()">INIZIA IL TEST</button>
             </div>
@@ -60,8 +91,8 @@
         <section id="prof-barbone" class="barbone-area reveal">
             <div class="barbone-card">
                 <h3>LOG: PROF BARBONE</h3>
-                <textarea id="barbone-input" placeholder="Scrivi un messaggio per l'archivio..."></textarea>
-                <button onclick="saveMessage()" class="btn-main">SALVA NEL DATABASE</button>
+                <textarea id="barbone-input" placeholder="Scrivi un messaggio..."></textarea>
+                <button onclick="saveMessage()" class="btn-main">SALVA NELL'ARCHIVIO</button>
                 <p id="save-status"></p>
             </div>
         </section>
