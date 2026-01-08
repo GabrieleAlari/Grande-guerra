@@ -1,38 +1,25 @@
 :root {
-    --bg: #1a1a1a;
-    --card-bg: #242424;
-    --text: #d1d1d1;
+    --bg: #0d0d0d;
+    --card-bg: #1a1a1a;
+    --text: #e0e0e0;
     --accent: #b22222;
-    --line: rgba(255, 255, 255, 0.1);
-}
-
-[data-theme="light"] {
-    --bg: #f5f5f0;
-    --card-bg: #ffffff;
-    --text: #1a1a1a;
-    --line: rgba(0, 0, 0, 0.1);
+    --line: rgba(255, 255, 255, 0.08);
 }
 
 body {
     background-color: var(--bg);
     color: var(--text);
-    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'Inter', 'Helvetica Neue', sans-serif;
     margin: 0;
     cursor: none;
     overflow-x: hidden;
-    transition: background 0.5s ease;
 }
 
+/* Effetto Grana */
 .grain {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
     background: url('https://upload.wikimedia.org/wikipedia/commons/7/76/1k_ext_film_grain.jpg');
-    opacity: 0.03; pointer-events: none; z-index: 9999;
-}
-
-.main-nav {
-    display: flex; justify-content: space-between; padding: 20px 5%;
-    background: var(--bg); border-bottom: 1px solid var(--line);
-    position: sticky; top: 0; z-index: 1000;
+    opacity: 0.02; pointer-events: none; z-index: 999;
 }
 
 /* Cursore Custom */
@@ -40,32 +27,47 @@ body {
     position: fixed; pointer-events: none; z-index: 10000;
     border-radius: 50%; transform: translate(-50%, -50%);
 }
-.cursor-dot { width: 8px; height: 8px; background: var(--accent); }
-.cursor-outline { width: 40px; height: 40px; border: 1px solid var(--accent); }
+.cursor-dot { width: 6px; height: 6px; background: var(--accent); }
+.cursor-outline { width: 35px; height: 35px; border: 1px solid var(--accent); transition: transform 0.15s ease-out; }
 
-/* Animazioni di Scroll */
-.reveal {
-    opacity: 0; transform: translateY(30px);
-    transition: all 0.8s ease-out;
+/* Hero Section */
+.hero {
+    height: 100vh; display: flex; flex-direction: column;
+    justify-content: center; align-items: center; text-align: center;
 }
+.glitch { font-size: 8vw; font-weight: 900; color: var(--accent); margin-bottom: 0; }
+.author-name { font-size: 1rem; letter-spacing: 4px; text-transform: uppercase; margin-top: 10px; }
+.author-name span { color: var(--accent); }
+
+/* Navigazione */
+.main-nav {
+    display: flex; justify-content: space-between; padding: 20px 5%;
+    border-bottom: 1px solid var(--line); position: sticky; top: 0; background: var(--bg); z-index: 100;
+}
+.nav-links a, .dropbtn { color: var(--text); text-decoration: none; margin: 0 15px; font-size: 0.8rem; background:none; border:none; cursor:none;}
+
+/* Dropdown */
+.dropdown { position: relative; display: inline-block; }
+.dropdown-content {
+    display: none; position: absolute; background: var(--card-bg); min-width: 120px; box-shadow: 0 8px 16px rgba(0,0,0,0.5); z-index: 1;
+}
+.dropdown:hover .dropdown-content { display: block; }
+.dropdown-content a { display: block; padding: 10px; }
+
+/* Flip Cards */
+.archive-grid { display: flex; gap: 20px; justify-content: center; padding: 50px 5%; }
+.flip-card { width: 250px; height: 300px; perspective: 1000px; }
+.flip-card-inner { position: relative; width: 100%; height: 100%; transition: transform 0.6s; transform-style: preserve-3d; }
+.flip-card:hover .flip-card-inner { transform: rotateY(180deg); }
+.flip-card-front, .flip-card-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center; border: 1px solid var(--line); border-radius: 4px; padding: 20px; text-align: center;}
+.flip-card-front { background: var(--card-bg); }
+.flip-card-back { background: var(--accent); color: white; transform: rotateY(180deg); }
+
+/* Sezioni & Reveal */
+.history-block { max-width: 800px; margin: 80px auto; padding: 40px; border-left: 2px solid var(--accent); }
+.reveal { opacity: 0; transform: translateY(30px); transition: 0.8s all ease; }
 .reveal.active { opacity: 1; transform: translateY(0); }
 
-.history-block {
-    background: var(--card-bg); border: 1px solid var(--line);
-    margin: 40px auto; padding: 40px; max-width: 800px;
-}
-
-.censored { background: #000; color: #000; transition: 0.4s; }
-.censored:hover { background: transparent; color: var(--accent); }
-
-/* Quiz & Barone Style */
-.btn-main {
-    background: var(--accent); color: white; border: none;
-    padding: 15px 30px; cursor: pointer; font-weight: bold; margin-top: 20px;
-}
-
-#barbone-input {
-    width: 100%; height: 150px; background: rgba(0,0,0,0.2);
-    color: var(--text); border: 1px solid var(--line); padding: 15px;
-    font-family: 'Courier New', monospace;
-}
+/* Prof Barbone & Quiz UI */
+#barbone-input { width: 100%; height: 150px; background: #000; color: #00ff00; border: 1px solid var(--line); font-family: monospace; padding: 15px; }
+.btn-main { background: var(--accent); color: white; border: none; padding: 12px 24px; margin-top: 15px; font-weight: bold; }
