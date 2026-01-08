@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="it" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARCHIVIO GRANDE GUERRA | 1914-1919</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+    <div class="scroll-progress"></div>
+    <div class="grain"></div>
+
+    <nav class="main-nav">
+        <div class="nav-brand">ARCHIVIO 14—19</div>
+        <div class="nav-links">
+            <div class="dropdown">
+                <button class="dropbtn">CRONOLOGIA <span>▼</span></button>
+                <div class="dropdown-content">
+                    <a href="#1914">1914 — Lo Scintilla</a>
+                    <a href="#1915">1915 — L'Intervento</a>
+                    <a href="#1916">1916 — Il Fango</a>
+                    <a href="#1917">1917 — La Svolta</a>
+                    <a href="#1918">1918 — La Fine</a>
+                    <a href="#1919">1919 — Le Macerie</a>
+                </div>
+            </div>
+            <a href="#quiz-section">QUIZ</a>
+            <a href="#prof-barbone">PROF BARBONE</a>
+            <button id="theme-switcher">TEMA</button>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1 class="glitch" data-text="GRANDE GUERRA">GRANDE GUERRA</h1>
+        <p>L'eclissi dell'Europa moderna attraverso i documenti d'archivio.</p>
+    </header>
+
+    <main id="content">
+        <section id="1914" class="history-block reveal">
+            <span class="year-label">1914</span>
+            <h2>L'assassinio della Belle Époque</h2>
+            <p>Il 28 giugno a Sarajevo, l'assassinio di <span class="censored">Francesco Ferdinando</span> scatena una reazione a catena. Le nazioni europee passano dai caffè ai campi di battaglia in poche settimane.</p>
+        </section>
+
+        <section id="quiz-section" class="quiz-container reveal">
+            <div class="quiz-header">
+                <h2>IL TEST DEL FRONTE</h2>
+                <div id="progress-bar"><div id="progress-fill"></div></div>
+            </div>
+            <div id="quiz-box">
+                <p id="question-text">Sei pronto a testare la tua conoscenza?</p>
+                <div id="options-grid"></div>
+                <button id="start-quiz-btn" class="btn-main" onclick="startQuiz()">INIZIA IL TEST</button>
+            </div>
+        </section>
+
+        <section id="prof-barbone" class="barbone-area reveal">
+            <div class="barbone-card">
+                <h3>LOG: PROF BARBONE</h3>
+                <textarea id="barbone-input" placeholder="Scrivi un messaggio per l'archivio..."></textarea>
+                <button onclick="saveMessage()" class="btn-main">SALVA NEL DATABASE</button>
+                <p id="save-status"></p>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
