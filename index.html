@@ -10,7 +10,6 @@
 
     <div class="cursor-dot"></div>
     <div class="cursor-outline"></div>
-    <div class="scroll-progress"></div>
     <div class="grain"></div>
 
     <header class="hero">
@@ -42,85 +41,44 @@
     </nav>
 
     <main>
-        <section id="1914" class="history-block reveal">
-            <span class="year-label">1914</span>
-            <h2>L'assassinio della Belle Époque</h2>
-            <p>Il 28 giugno a Sarajevo, l'assassinio di <span class="censored">Francesco Ferdinando</span> scatena una reazione a catena. Le potenze europee mobilitano i propri eserciti. Inizia la guerra di movimento che diventerà presto di trincea.</p>
-        </section>
-
-        <section id="1915" class="history-block reveal">
-            <span class="year-label">1915</span>
-            <h2>L'Intervento Italiano</h2>
-            <p>L'Italia firma il <span class="censored">Patto di Londra</span> ed entra in guerra contro l'Austria-Ungheria. Si combatte sulle Alpi e lungo l'Isonzo. La guerra diventa una logorante sfida di posizione.</p>
-        </section>
-
-        <section id="1916" class="history-block reveal">
-            <span class="year-label">1916</span>
-            <h2>L'Inferno di Verdun</h2>
-            <p>L'anno delle grandi battaglie di attrito. Sul fronte occidentale, Verdun e la Somme causano milioni di vittime. In Italia, la <span class="censored">Strafexpedition</span> mette alla prova la tenuta del fronte.</p>
-        </section>
-
-        <section id="1917" class="history-block reveal">
-            <span class="year-label">1917</span>
-            <h2>L'Anno della Svolta</h2>
-            <p>La Russia si ritira per la rivoluzione interna, ma gli <span class="censored">Stati Uniti</span> entrano in guerra. Per l'Italia è l'anno della disfatta di Caporetto e della successiva resistenza sul Piave.</p>
-        </section>
-
-        <section id="1918" class="history-block reveal">
-            <span class="year-label">1918</span>
-            <h2>Vittorio Veneto e la Fine</h2>
-            <p>Le ultime offensive. L'Italia vince la battaglia di <span class="censored">Vittorio Veneto</span>. L'11 novembre la Germania firma l'armistizio: i cannoni finalmente tacciono.</p>
-        </section>
-
-        <section id="1919" class="history-block reveal">
-            <span class="year-label">1919</span>
-            <h2>Un Nuovo Mondo</h2>
-            <p>Con i trattati di <span class="censored">Versailles</span>, l'Europa viene ridisegnata. Crollano quattro imperi, ma le tensioni della "Vittoria Mutilata" restano nell'aria.</p>
-        </section>
-
-        <section id="archivio" class="reveal">
-            <h2 class="section-title">ARCHIVIO REPERTI</h2>
-            <div class="archive-grid">
-                <div class="flip-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front"><h3>ELMETTO ADRIAN</h3></div>
-                        <div class="flip-card-back"><p>Simbolo della protezione in trincea, adottato per limitare i danni delle schegge.</p></div>
-                    </div>
-                </div>
-                <div class="flip-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front"><h3>MASCHERA ANTIGAS</h3></div>
-                        <div class="flip-card-back"><p>Indispensabile dopo l'uso del gas a Ypres. Rappresenta la morte invisibile.</p></div>
-                    </div>
-                </div>
-                <div class="flip-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front"><h3>IL FILO SPINATO</h3></div>
-                        <div class="flip-card-back"><p>L'ostacolo insormontabile della "Terra di Nessuno" tra le trincee nemiche.</p></div>
-                    </div>
-                </div>
-                <div class="flip-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front"><h3>PICCIONE VIAGGIATORE</h3></div>
-                        <div class="flip-card-back"><p>Spesso l'unico modo per inviare messaggi vitali quando i cavi telefonici erano recisi.</p></div>
-                    </div>
-                </div>
-                <div class="flip-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front"><h3>FUCILE CARCANO</h3></div>
-                        <div class="flip-card-back"><p>L'arma d'ordinanza del fante italiano (Mod. 91), fedele compagno di milioni di uomini.</p></div>
-                    </div>
-                </div>
-                <div class="flip-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front"><h3>TELEGRAMMA ZIMMERMANN</h3></div>
-                        <div class="flip-card-back"><p>Il documento segreto che accelerò l'ingresso degli Stati Uniti nel conflitto.</p></div>
-                    </div>
-                </div>
+        <h2 class="section-title reveal-title">CRONOLOGIA</h2>
+        <section id="timeline-display" class="history-block reveal">
+            <div id="timeline-content">
+                <span class="year-label" id="dynamic-year">1914</span>
+                <h2 id="dynamic-title">L'assassinio della Belle Époque</h2>
+                <p id="dynamic-text">Il 28 giugno a Sarajevo, l'assassinio di <span class="censored">Francesco Ferdinando</span> scatena la Grande Guerra.</p>
             </div>
         </section>
 
-        </main>
+        <h2 class="section-title reveal-title">ARCHIVIO</h2>
+        <section id="archivio" class="reveal">
+            <div class="archive-grid">
+                <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><h3>ELMETTO ADRIAN</h3></div><div class="flip-card-back"><p>Protezione standard per le schegge in trincea.</p></div></div></div>
+                <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><h3>MASCHERA ANTIGAS</h3></div><div class="flip-card-back"><p>Difesa contro la morte invisibile dei gas tossici.</p></div></div></div>
+                <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><h3>FILO SPINATO</h3></div><div class="flip-card-back"><p>L'ostacolo letale della terra di nessuno.</p></div></div></div>
+                <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><h3>PICCIONE VIAGGIATORE</h3></div><div class="flip-card-back"><p>Comunicazioni vitali sotto il fuoco nemico.</p></div></div></div>
+                <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><h3>FUCILE CARCANO</h3></div><div class="flip-card-back"><p>L'arma del fante italiano: Modello 91.</p></div></div></div>
+                <div class="flip-card"><div class="flip-card-inner"><div class="flip-card-front"><h3>TELEGRAMMA ZIMMERMANN</h3></div><div class="flip-card-back"><p>Il messaggio segreto che portò gli USA nel conflitto.</p></div></div></div>
+            </div>
+        </section>
+
+        <h2 class="section-title reveal-title">QUIZ</h2>
+        <section id="quiz-section" class="quiz-container reveal">
+            <div id="quiz-box">
+                <p id="question-text">Metti alla prova la tua memoria.</p>
+                <div id="options-grid"></div>
+                <button id="start-quiz-btn" class="btn-main" onclick="startQuiz()">INIZIA IL TEST</button>
+            </div>
+        </section>
+
+        <section id="prof-barbone" class="barbone-area reveal">
+            <div class="barbone-card">
+                <h3>LOG: PROF BARBONE</h3>
+                <textarea id="barbone-input" placeholder="Scrivi un messaggio..."></textarea>
+                <button onclick="saveMessage()" class="btn-main">SALVA MESSAGGIO</button>
+            </div>
+        </section>
+    </main>
 
     <script src="script.js"></script>
 </body>
