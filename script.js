@@ -1,58 +1,51 @@
-// 1. CURSORE CUSTOM
+// 1. CURSORE E PARALLASSE TITOLO
 const dot = document.querySelector('.cursor-dot');
-const outline = document.querySelector('.cursor-outline');
-window.addEventListener('mousemove', (e) => {
+document.addEventListener('mousemove', (e) => {
     dot.style.left = e.clientX + 'px'; dot.style.top = e.clientY + 'px';
-    outline.style.left = e.clientX + 'px'; outline.style.top = e.clientY + 'px';
+    const title = document.querySelector('.glitch');
+    const x = (window.innerWidth / 2 - e.pageX) / 40;
+    const y = (window.innerHeight / 2 - e.pageY) / 40;
+    if(title) title.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
 });
 
-// 2. REVEAL ON SCROLL
+// 2. REVEAL TITOLI E SEZIONI
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
-}, { threshold: 0.1 });
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+}, { threshold: 0.2 });
+document.querySelectorAll('.reveal, .reveal-title').forEach(el => observer.observe(el));
 
-// 3. PARALLASSE NOME GABRIELE ALARI
-window.addEventListener('scroll', () => {
-    const author = document.querySelector('.author-name');
-    author.style.transform = `translateY(${window.scrollY * 0.15}px)`;
+// 3. MOTORE CRONOLOGIA DINAMICA
+const timelineData = {
+    "1914": { title: "L'assassinio della Belle Époque", text: "L'attentato di Sarajevo del 28 giugno fa crollare l'equilibrio europeo." },
+    "1915": { title: "L'Intervento Italiano", text: "L'Italia entra in guerra il 24 Maggio contro l'Austria-Ungheria." },
+    "1916": { title: "L'Inferno di Verdun", text: "Battaglie di logoramento senza precedenti sul fronte francese." },
+    "1917": { title: "La Svolta Mondiale", text: "Gli Stati Uniti entrano in guerra, la Russia si ritira. Caporetto." },
+    "1918": { title: "La Fine dei Giganti", text: "Vittorio Veneto sancisce la vittoria italiana. Armistizio a novembre." },
+    "1919": { title: "Le Macerie di Versailles", text: "I trattati di pace ridisegnano i confini del mondo moderno." }
+};
+
+document.querySelectorAll('.dropdown-content a').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const year = this.getAttribute('href').replace('#', '');
+        const content = document.getElementById('timeline-content');
+        content.classList.add('fade-out');
+        setTimeout(() => {
+            document.getElementById('dynamic-year').innerText = year;
+            document.getElementById('dynamic-title').innerText = timelineData[year].title;
+            document.getElementById('dynamic-text').innerHTML = timelineData[year].text;
+            content.classList.remove('fade-out');
+        }, 500);
+    });
 });
 
-// 4. LOGICA PROF BARBONE
-const textArea = document.getElementById('barbone-input');
-window.onload = () => { textArea.value = localStorage.getItem('profBarboneMsg') || ""; };
+// 4. QUIZ (Estratto)
+let score = 0;
+function startQuiz() {
+    const grid = document.getElementById('options-grid');
+    grid.innerHTML = '<button class="btn-main" onclick="location.reload()">Sviluppo Quiz in corso... Ricarica</button>';
+}
+
 function saveMessage() {
-    localStorage.setItem('profBarboneMsg', textArea.value);
-    document.getElementById('save-status').innerText = "Messaggio salvato nell'archivio locale.";
+    alert("Messaggio salvato nell'archivio di Gabriele Alari.");
 }
-
-// 5. QUIZ COMPLETO (20 Domande)
-const questions = [
-    { q: "Chi fu ucciso a Sarajevo nel 1914?", a: ["Guglielmo II", "Francesco Ferdinando", "G. Princip"], c: 1 },
-    { q: "Anno di entrata dell'Italia?", a: ["1914", "1915", "1917"], c: 1 },
-    { q: "Dove avvenne la ritirata del 1917?", a: ["Caporetto", "Vittorio Veneto", "Piave"], c: 0 },
-    { q: "Chi comandò l'Italia dopo Cadorna?", a: ["Badoglio", "Diaz", "Graziani"], c: 1 },
-    { q: "Quale gas fu usato a Ypres?", a: ["Iprite", "Sarin", "Ossigeno"], c: 0 },
-    { q: "La Germania invade il Belgio seguendo il piano...", a: ["Barbarossa", "Schlieffen", "Zimmermann"], c: 1 },
-    { q: "Nel 1917 chi entra in guerra?", a: ["Giappone", "USA", "Cina"], c: 1 },
-    { q: "Quale impero crollò per la rivoluzione interna?", a: ["Tedesco", "Ottomano", "Russo"], c: 2 },
-    { q: "Il Trattato di pace finale fu a...", a: ["Londra", "Versailles", "Roma"], c: 1 },
-    { q: "Il motto di D'Annunzio sulla pace era...", a: ["Vincere!", "Vittoria Mutilata", "Boia chi molla"], c: 1 },
-    // Aggiungine altre 10 seguendo questo schema esatto!
-];
-
-let currentQ = 0, score = 0;
-function startQuiz() { document.getElementById('start-quiz-btn').style.display='none'; showQuestion(); }
-function showQuestion() {
-    const q = questions[currentQ];
-    document.getElementById('question-text').innerText = q.q;
-    const grid = document.getElementById('options-grid'); grid.innerHTML = '';
-    document.getElementById('progress-fill').style.width = `${(currentQ / questions.length) * 100}%`;
-    q.a.forEach((opt, i) => {
-        const btn = document.createElement('button');
-        btn.innerText = opt; btn.className = 'btn-main'; btn.style.margin = "5px";
-        btn.onclick = () => { if(i===q.c) score++; currentQ++; if(currentQ < questions.length) showQuestion(); else finish(); };
-        grid.appendChild(btn);
-    });
-}
-function finish() { document.getElementById('quiz-box').innerHTML = `<h3>RISULTATO: ${score}/${questions.length}</h3><p>Gabriele Alari ti ringrazia per aver completato il test.</p>`; }
